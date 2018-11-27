@@ -24,6 +24,8 @@
 #
 # https://www.terraform.io/docs/providers/aws/r/organizations_account.html
 resource "aws_organizations_account" "default" {
+  count = "${var.enabled}"
+
   # A friendly name for the member account.
   # Minimum length of 1. Maximum length of 50.
   # https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreateAccount.html#organizations-CreateAccount-request-AccountName
