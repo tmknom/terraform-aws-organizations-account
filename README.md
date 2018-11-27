@@ -8,11 +8,28 @@ Terraform module template following [Standard Module Structure](https://www.terr
 
 ## Usage
 
-Named `terraform-<PROVIDER>-<NAME>`. Module repositories must use this three-part name format.
+### Minimal
 
-```sh
-curl -fsSL https://raw.githubusercontent.com/tmknom/terraform-aws-organizations-account/master/install | sh -s terraform-aws-sample
-cd terraform-aws-sample && make install
+```hcl
+module "organizations_account" {
+  source = "git::https://github.com/tmknom/terraform-aws-organizations-account.git?ref=tags/1.0.0"
+  name   = "example"
+  email  = "minimal@example.com"
+}
+```
+
+### Complete
+
+```hcl
+module "organizations_account" {
+  source = "git::https://github.com/tmknom/terraform-aws-organizations-account.git?ref=tags/1.0.0"
+  name   = "example"
+  email  = "complete@example.com"
+
+  iam_user_access_to_billing = "DENY"
+  role_name                  = "OrganizationAccoLuntAccessRole"
+  enabled                    = true
+}
 ```
 
 ## Examples
