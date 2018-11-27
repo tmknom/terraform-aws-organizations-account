@@ -22,11 +22,21 @@ cd terraform-aws-sample && make install
 
 ## Inputs
 
-Write your Terraform module inputs.
+| Name                       | Description                                                                                       |  Type  |             Default              | Required |
+| -------------------------- | ------------------------------------------------------------------------------------------------- | :----: | :------------------------------: | :------: |
+| email                      | The email address of the owner to assign to the new member account.                               | string |                -                 |   yes    |
+| name                       | A friendly name for the member account.                                                           | string |                -                 |   yes    |
+| enabled                    | Set to false to prevent the module from creating anything.                                        | string |              `true`              |    no    |
+| iam_user_access_to_billing | If set to ALLOW, the new account enables IAM users to access account billing information.         | string |             `ALLOW`              |    no    |
+| role_name                  | The name of an IAM role that Organizations automatically preconfigures in the new member account. | string | `OrganizationAccoLuntAccessRole` |    no    |
 
 ## Outputs
 
-Write your Terraform module outputs.
+| Name                       | Description               |
+| -------------------------- | ------------------------- |
+| organizations_account_arn  | The ARN for this account. |
+| organizations_account_id   | The AWS account id.       |
+| organizations_account_name | The AWS account name.     |
 
 ## Development
 
