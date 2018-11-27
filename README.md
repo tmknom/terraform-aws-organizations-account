@@ -4,7 +4,7 @@
 [![GitHub tag](https://img.shields.io/github/tag/tmknom/terraform-aws-organizations-account.svg)](https://registry.terraform.io/modules/tmknom/organizations-account/aws)
 [![License](https://img.shields.io/github/license/tmknom/terraform-aws-organizations-account.svg)](https://opensource.org/licenses/Apache-2.0)
 
-Terraform module template following [Standard Module Structure](https://www.terraform.io/docs/modules/create.html#standard-module-structure).
+Terraform module which creates AWS Organizations Account resources on AWS.
 
 ## Usage
 
