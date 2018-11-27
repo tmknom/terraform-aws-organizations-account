@@ -19,3 +19,9 @@ variable "role_name" {
   type        = "string"
   description = "The name of an IAM role that Organizations automatically preconfigures in the new member account."
 }
+
+variable "enabled" {
+  default     = true
+  type        = "string"
+  description = "Set to false to prevent the module from creating anything."
+}
