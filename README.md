@@ -6,6 +6,15 @@
 
 Terraform module which creates AWS Organizations Account resources on AWS.
 
+## Description
+
+Provision [AWS Account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html).
+
+This module provides recommended settings:
+
+- Enable access to billing
+- Use OrganizationAccountAccessRole
+
 ## Usage
 
 ### Minimal
