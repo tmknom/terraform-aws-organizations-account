@@ -4,15 +4,41 @@
 [![GitHub tag](https://img.shields.io/github/tag/tmknom/terraform-aws-organizations-account.svg)](https://registry.terraform.io/modules/tmknom/organizations-account/aws)
 [![License](https://img.shields.io/github/license/tmknom/terraform-aws-organizations-account.svg)](https://opensource.org/licenses/Apache-2.0)
 
-Terraform module template following [Standard Module Structure](https://www.terraform.io/docs/modules/create.html#standard-module-structure).
+Terraform module which creates AWS Organizations Account resources on AWS.
+
+## Description
+
+Provision [AWS Account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html).
+
+This module provides recommended settings:
+
+- Enable access to billing
+- Use OrganizationAccountAccessRole
 
 ## Usage
 
-Named `terraform-<PROVIDER>-<NAME>`. Module repositories must use this three-part name format.
+### Minimal
 
-```sh
-curl -fsSL https://raw.githubusercontent.com/tmknom/terraform-aws-organizations-account/master/install | sh -s terraform-aws-sample
-cd terraform-aws-sample && make install
+```hcl
+module "organizations_account" {
+  source = "git::https://github.com/tmknom/terraform-aws-organizations-account.git?ref=tags/1.0.0"
+  name   = "example"
+  email  = "minimal@example.com"
+}
+```
+
+### Complete
+
+```hcl
+module "organizations_account" {
+  source = "git::https://github.com/tmknom/terraform-aws-organizations-account.git?ref=tags/1.0.0"
+  name   = "example"
+  email  = "complete@example.com"
+
+  iam_user_access_to_billing = "DENY"
+  role_name                  = "OrganizationAccoLuntAccessRole"
+  enabled                    = true
+}
 ```
 
 ## Examples
@@ -22,11 +48,21 @@ cd terraform-aws-sample && make install
 
 ## Inputs
 
-Write your Terraform module inputs.
+| Name                       | Description                                                                                       |  Type  |             Default              | Required |
+| -------------------------- | ------------------------------------------------------------------------------------------------- | :----: | :------------------------------: | :------: |
+| email                      | The email address of the owner to assign to the new member account.                               | string |                -                 |   yes    |
+| name                       | A friendly name for the member account.                                                           | string |                -                 |   yes    |
+| enabled                    | Set to false to prevent the module from creating anything.                                        | string |              `true`              |    no    |
+| iam_user_access_to_billing | If set to ALLOW, the new account enables IAM users to access account billing information.         | string |             `ALLOW`              |    no    |
+| role_name                  | The name of an IAM role that Organizations automatically preconfigures in the new member account. | string | `OrganizationAccoLuntAccessRole` |    no    |
 
 ## Outputs
 
-Write your Terraform module outputs.
+| Name                       | Description               |
+| -------------------------- | ------------------------- |
+| organizations_account_arn  | The ARN for this account. |
+| organizations_account_id   | The AWS account id.       |
+| organizations_account_name | The AWS account name.     |
 
 ## Development
 
