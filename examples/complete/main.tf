@@ -4,6 +4,6 @@ module "organizations_account" {
   email  = "complete@example.com"
 
   iam_user_access_to_billing = "DENY"
-  role_name                  = "OrganizationAccoLuntAccessRole"
+  role_name                  = "OrganizationAccountAccessRole"
   enabled                    = true
 }
