@@ -36,7 +36,7 @@ module "organizations_account" {
   email  = "complete@example.com"
 
   iam_user_access_to_billing = "DENY"
-  role_name                  = "OrganizationAccoLuntAccessRole"
+  role_name                  = "OrganizationAccountAccessRole"
   enabled                    = true
 }
 ```
@@ -54,7 +54,7 @@ module "organizations_account" {
 | name                       | A friendly name for the member account.                                                           | string |                -                 |   yes    |
 | enabled                    | Set to false to prevent the module from creating anything.                                        | string |              `true`              |    no    |
 | iam_user_access_to_billing | If set to ALLOW, the new account enables IAM users to access account billing information.         | string |             `ALLOW`              |    no    |
-| role_name                  | The name of an IAM role that Organizations automatically preconfigures in the new member account. | string | `OrganizationAccoLuntAccessRole` |    no    |
+| role_name                  | The name of an IAM role that Organizations automatically preconfigures in the new member account. | string | `OrganizationAccountAccessRole` |    no    |
 
 ## Outputs
 

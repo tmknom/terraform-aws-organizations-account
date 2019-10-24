@@ -15,7 +15,7 @@ variable "iam_user_access_to_billing" {
 }
 
 variable "role_name" {
-  default     = "OrganizationAccoLuntAccessRole"
+  default     = "OrganizationAccountAccessRole"
   type        = "string"
   description = "The name of an IAM role that Organizations automatically preconfigures in the new member account."
 }
